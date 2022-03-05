@@ -1,4 +1,6 @@
 import pygame
+import element as elmt
+import elementManager as elmtManager
 
 import sys
 import os
@@ -44,5 +46,12 @@ class Jeu:
         pass
 
     def initRender(self):
-        
+        self.backgroundManager = elmtManager.elementManager()
+        bedroomStart = elmt.element(0,0,"bedroomStart.png")
+        bedroomMiddle = elmt.element(0,0,"bedroomMiddle.png")
+        bedroomEnd = elmt.element(0,0,"bedroomEnd.png")
+        self.backgroundManager.addElement(bedroomStart)
+        self.backgroundManager.addElement(bedroomMiddle)
+        self.backgroundManager.addElement(bedroomEnd)
+        pass
 
