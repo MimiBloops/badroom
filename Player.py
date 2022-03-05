@@ -25,6 +25,10 @@ class Player(element):
         self.screenHight = pygame.display.get_surface().get_height()
         self.screenWidth = pygame.display.get_surface().get_width()
         
+        self.rect.x = 400
+    def move(self):
+        self.rect.x += self.velocity
+
     def event(self):
         super().event(self)
 

@@ -34,7 +34,7 @@ class Jeu:
         self.running = True
         self.timer = False
         self.Pause = True
-        self.playerInitialized = False;
+        self.playerInitialized = False
         #self.sound_manager = SoundManager()
         pygame.display.set_icon(pygame.image.load(resource_path('ressources/icon.png')))
 
@@ -48,6 +48,10 @@ class Jeu:
                 self.running = False
                 pygame.quit()
                 print("GAME CLOSED")
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    Jeu.Player.move()
+        pass
 
     def update(self):
         self.clock.tick(60)
