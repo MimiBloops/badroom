@@ -58,5 +58,9 @@ class Jeu:
         self.backgroundManager.addElement(bedroomStart)
         self.backgroundManager.addElement(bedroomMiddle)
         self.backgroundManager.addElement(bedroomEnd)
+
+        self.entityManager = elmtManager.elementManager()
+        player = elmt.element(0,0,"player.png")
+        self.entityManager.addElement(player)
         pass
 
