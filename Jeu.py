@@ -46,6 +46,7 @@ class Jeu:
 
     def render(self):
         self.backgroundManager.renderElements(self.screen, 0)
+        #self.entityManager.renderElements(self.screen)
         pygame.display.flip()
         pass
 
