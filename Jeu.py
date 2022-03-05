@@ -46,11 +46,16 @@ class Jeu:
                 print("GAME CLOSED")
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    Jeu.Player.move()
+                    ply = self.entityManager.elements[0]
+                    ply.jump()
+                    print(ply.texture_rect.y)
         pass
 
     def update(self):
         self.entityManager.updateElements()
+        #==== gravity =====#
+        if self.entityManager.elements[0].texture_rect.y < pygame.display.get_surface().get_height()/1.35:
+            self.entityManager.elements[0].texture_rect.y += 3
         pass
 
 

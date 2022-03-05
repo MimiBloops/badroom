@@ -21,17 +21,27 @@ class Player(element):
         self.health = 3
         self.max_health = 3
         self.attack = 10
-        self.velocity = 5
-        self.rect.x = 400
-    def move(self):
-        self.rect.x += self.velocity
+        self.jumpVelocity = 15
+        self.IsJumping = False
+        self.texture_rect.y = pygame.display.get_surface().get_height()/1.35
+        
+    def jump(self):
+        self.IsJumping = True
+        self.jumpVelocity = 15
 
     def event(self):
         super().event(self)
 
     def update(self):
         super().update()
-        self.texture_rect.y = pygame.display.get_surface().get_height()/1.35
+        if self.IsJumping:
+            self.texture_rect.y -= self.jumpVelocity
+            self.jumpVelocity -= 1
+            if self.jumpVelocity < 1:
+                self.IsJumping = False
+        else:
+            self.IsJumping = False
+        #self.texture_rect.y = pygame.display.get_surface().get_height()/1.35
         self.texture_rect.x = pygame.display.get_surface().get_width()/8
 
     def render(self,screen):
