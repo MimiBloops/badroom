@@ -23,11 +23,11 @@ class Player(element):
         self.attack = 10
         self.velocity = 5
         
-    def event():
-        super().event()
+    def event(self):
+        super().event(self)
 
-    def update():
+    def update(self):
         super().update() 
 
-    def render():
-        super().render()
+    def render(self,screen):
+        super().render(screen)

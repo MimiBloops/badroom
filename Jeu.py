@@ -51,9 +51,8 @@ class Jeu:
 
     def render(self):
         self.backgroundManager.renderElements(self.screen, 0)
-        #self.entityManager.renderElements(self.screen)
+        self.entityManager.renderElements(self.screen,0)
         pygame.display.flip()
-        pass
 
     def initRender(self):
         self.backgroundManager = elmtManager.elementManager()
@@ -67,5 +66,4 @@ class Jeu:
         self.entityManager = elmtManager.elementManager()
         player = Player(0,0,"player/idle/idle.png")
         self.entityManager.addElement(player)
-        pass
 
