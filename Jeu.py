@@ -39,6 +39,11 @@ class Jeu:
         self.initRender()
 
     def event(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+                pygame.quit()
+                print("GAME CLOSED")
         pass
 
     def update(self):
