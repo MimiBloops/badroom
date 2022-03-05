@@ -1,6 +1,7 @@
 import pygame
 import element as elmt
 import elementManager as elmtManager
+from Player import *
 
 import sys
 import os
@@ -63,5 +64,7 @@ class Jeu:
         self.backgroundManager.addElement(bedroomEnd)
 
         self.entityManager = elmtManager.elementManager()
+        player = Player(0,0,"player/idle/idle.png")
+        self.entityManager.addElement(player)
         pass
 
