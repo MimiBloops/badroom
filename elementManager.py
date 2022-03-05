@@ -1,6 +1,9 @@
 
 #====================== Class ElementManager - Conteneur d'une liste d'éléments ===========================#
 
+from ast import Break
+
+
 class elementManager:
     def __init__(self):
         self.elements = []
@@ -27,8 +30,8 @@ class elementManager:
                 return action
 
     def updateElements(self,index=None):
-        for element in self.elements:
-            element.update()
         if index is not None:
             self.elements[index].update()
-        pass
+            return True
+        for element in self.elements:
+            element.update()

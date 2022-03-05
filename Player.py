@@ -22,14 +22,16 @@ class Player(element):
         self.max_health = 3
         self.attack = 10
         self.velocity = 5
+        self.screenHight = pygame.display.get_surface().get_height()
+        self.screenWidth = pygame.display.get_surface().get_width()
         
     def event(self):
         super().event(self)
 
     def update(self):
         super().update()
-        self.texture_rect.y = pygame.display.get_surface().get_height()/1.35
-        self.texture_rect.x = pygame.display.get_surface().get_width()/8
+        self.texture_rect.y = self.screenHight/1.35
+        self.texture_rect.x = self.screenWidth/8
 
     def render(self,screen):
         super().render(screen)
