@@ -49,12 +49,21 @@ class Jeu:
                 self.running = False
                 pygame.quit()
                 print("GAME CLOSED")
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    ply = self.entityManager.elements[0]
+                    ply.jump()
+                    print(ply.texture_rect.y)
         pass
 
     def update(self):
         self.clock.tick(60)
         self.backgroundManager.updateElements()
         self.entityManager.updateElements()
+        #==== gravity =====#
+        if self.entityManager.elements[0].texture_rect.y < pygame.display.get_surface().get_height()/1.35:
+            self.entityManager.elements[0].texture_rect.y += 3
+        pass
 
 
     def render(self):
