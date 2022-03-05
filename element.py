@@ -28,7 +28,7 @@ class element:
         self.texture = None
         self.centerText = True
         if textureName is not None:
-            self.texture = pygame.image.load(resource_path("ressources/" + textureName))
+            self.texture = pygame.image.load(resource_path("ressources/" + textureName)).convert_alpha()
             self.texture_rect = self.texture.get_rect()
             self.texture_rect.x = pos_x
             self.texture_rect.y = pos_y

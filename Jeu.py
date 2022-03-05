@@ -6,6 +6,8 @@ from Player import *
 import sys
 import os
 
+from movingBackground import movingBackground
+
 def resource_path(relative_path):
     try:
     # PyInstaller creates a temp folder and stores path in _MEIPASS
@@ -18,7 +20,10 @@ def resource_path(relative_path):
 class Jeu:
     def __init__(self,title,width,height):
         pygame.init() #initalisation de pygame
-        DISPLAYSURF = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+
+        self.clock = pygame.time.Clock()
+
         self.title = title
         self.width = width
         self.height = height
@@ -29,12 +34,11 @@ class Jeu:
         self.running = True
         self.timer = False
         self.Pause = True
-        self.playerInitialized = False;
+        self.playerInitialized = False
         #self.sound_manager = SoundManager()
         pygame.display.set_icon(pygame.image.load(resource_path('ressources/icon.png')))
 
         pygame.display.set_caption(title) # Mettre le titre sur Iai-sudoku <3
-        self.screen = pygame.display.set_mode((width,height)) # Resize la fenêtre
         self.font = pygame.font.SysFont("comicsansms", 30) # initialisaTIon des font (pour le texte)
         self.initRender()
 
@@ -52,6 +56,8 @@ class Jeu:
         pass
 
     def update(self):
+        self.clock.tick(60)
+        self.backgroundManager.updateElements()
         self.entityManager.updateElements()
         #==== gravity =====#
         if self.entityManager.elements[0].texture_rect.y < pygame.display.get_surface().get_height()/1.35:
@@ -66,9 +72,9 @@ class Jeu:
 
     def initRender(self):
         self.backgroundManager = elmtManager.elementManager()
-        bedroomStart = elmt.element(0,0,"bedroomStart.png")
-        bedroomMiddle = elmt.element(0,0,"bedroomMiddle.png")
-        bedroomEnd = elmt.element(0,0,"bedroomEnd.png")
+        bedroomStart = movingBackground(0,0,"bedroomStart.png")
+        bedroomMiddle = movingBackground(0,0,"bedroomMiddle.png")
+        bedroomEnd = movingBackground(0,0,"bedroomEnd.png")
         self.backgroundManager.addElement(bedroomStart)
         self.backgroundManager.addElement(bedroomMiddle)
         self.backgroundManager.addElement(bedroomEnd)
