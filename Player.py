@@ -1,5 +1,5 @@
 import pygame
-import element as elmt
+from element import *
 
 import sys
 import os
@@ -14,11 +14,10 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
-class Player(elmt):
+class Player(element):
 
     def __init__(self,pos_x,pos_y,textureName=None):
-        player = Player(pos_x,pos_y)
-        super().__init__
+        super().__init__(pos_x,pos_y,textureName=None)
         self.health = 3
         self.max_health = 3
         self.attack = 10
