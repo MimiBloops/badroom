@@ -1,6 +1,7 @@
 import pygame
 import element as elmt
 import elementManager as elmtManager
+from Player import *
 
 import sys
 import os
@@ -36,6 +37,7 @@ class Jeu:
         self.screen = pygame.display.set_mode((width,height)) # Resize la fenêtre
         self.font = pygame.font.SysFont("comicsansms", 30) # initialisaTIon des font (pour le texte)
         self.initRender()
+        player = Player(0,0,"player/idle/idle.png")
 
     def event(self):
         pass
