@@ -17,7 +17,7 @@ def resource_path(relative_path):
 class Player(element):
 
     def __init__(self,pos_x,pos_y,textureName=None):
-        super().__init__(pos_x,pos_y,textureName=None)
+        super().__init__(pos_x,pos_y,textureName)
         self.health = 3
         self.max_health = 3
         self.attack = 10
