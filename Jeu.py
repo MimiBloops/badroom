@@ -37,7 +37,6 @@ class Jeu:
         self.screen = pygame.display.set_mode((width,height)) # Resize la fenêtre
         self.font = pygame.font.SysFont("comicsansms", 30) # initialisaTIon des font (pour le texte)
         self.initRender()
-        self.player = Player(0,0,"player/idle/idle.png")
 
     def event(self):
         pass
@@ -60,5 +59,7 @@ class Jeu:
         self.backgroundManager.addElement(bedroomEnd)
 
         self.entityManager = elmtManager.elementManager()
+        player = Player(0,0,"player/idle/idle.png")
+        self.entityManager.addElement(player)
         pass
 
