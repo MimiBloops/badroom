@@ -22,7 +22,10 @@ class Player(element):
         self.max_health = 3
         self.attack = 10
         self.velocity = 5
-        
+        self.rect.x = 400
+    def move(self):
+        self.rect.x += self.velocity
+
     def event(self):
         super().event(self)
 

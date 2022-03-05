@@ -44,6 +44,9 @@ class Jeu:
                 self.running = False
                 pygame.quit()
                 print("GAME CLOSED")
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    print("Pillow")
         pass
 
     def update(self):
