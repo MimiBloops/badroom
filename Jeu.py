@@ -33,9 +33,16 @@ class Jeu:
         pygame.display.set_caption(title) # Mettre le titre sur Iai-sudoku <3
         self.screen = pygame.display.set_mode((width,height)) # Resize la fenêtre
         self.font = pygame.font.SysFont("comicsansms", 30) # initialisaTIon des font (pour le texte)
+
     def event(self):
         pass
+
     def update(self):
         pass
+
     def render(self):
         pass
+
+    def initRender(self):
+        
+
