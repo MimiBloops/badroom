@@ -20,7 +20,8 @@ def resource_path(relative_path):
 class Jeu:
     def __init__(self,title,width,height):
         pygame.init() #initalisation de pygame
-        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        flags = pygame.FULLSCREEN | pygame.DOUBLEBUF
+        self.screen = pygame.display.set_mode((0, 0), flags)
 
         self.clock = pygame.time.Clock()
 
@@ -48,9 +49,6 @@ class Jeu:
                 self.running = False
                 pygame.quit()
                 print("GAME CLOSED")
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    Jeu.Player.move()
         pass
 
     def update(self):
