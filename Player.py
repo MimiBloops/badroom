@@ -27,7 +27,9 @@ class Player(element):
         super().event(self)
 
     def update(self):
-        super().update() 
+        super().update()
+        self.texture_rect.y = pygame.display.get_surface().get_height()/1.35
+        self.texture_rect.x = pygame.display.get_surface().get_width()/8
 
     def render(self,screen):
         super().render(screen)

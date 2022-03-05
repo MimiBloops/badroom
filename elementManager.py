@@ -25,3 +25,10 @@ class elementManager:
             action = element.event(event)
             if not action == None:
                 return action
+
+    def updateElements(self,index=None):
+        for element in self.elements:
+            element.update()
+        if index is not None:
+            self.elements[index].update()
+        pass

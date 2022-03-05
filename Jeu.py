@@ -29,7 +29,7 @@ class Jeu:
         self.running = True
         self.timer = False
         self.Pause = True
-        self.sakuraDelay = 0
+        self.playerInitialized = False;
         #self.sound_manager = SoundManager()
         pygame.display.set_icon(pygame.image.load(resource_path('ressources/icon.png')))
 
@@ -47,7 +47,9 @@ class Jeu:
         pass
 
     def update(self):
+        self.entityManager.updateElements()
         pass
+
 
     def render(self):
         self.backgroundManager.renderElements(self.screen, 0)
@@ -65,5 +67,6 @@ class Jeu:
 
         self.entityManager = elmtManager.elementManager()
         player = Player(0,0,"player/idle/idle.png")
+        self.playerInitialized = True
         self.entityManager.addElement(player)
 
